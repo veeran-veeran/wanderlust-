@@ -20,9 +20,17 @@ const passport= require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
+const Listing = require("./models/listing");
+
 
 const dbUrl=process.env.ATLASDB_URL;
 // const dbUrl=process.env.MONGO_URI;
+
+app.use(async (req, res, next) => {
+  res.locals.allListings = await Listing.find({});
+  next();
+});
+
 
 main()
   .then(() => {
