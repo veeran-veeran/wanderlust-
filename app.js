@@ -22,6 +22,7 @@ const User = require("./models/user.js");
 
 
 const dbUrl=process.env.ATLASDB_URL;
+// const dbUrl=process.env.MONGO_URI;
 
 main()
   .then(() => {
